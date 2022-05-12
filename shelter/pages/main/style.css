@@ -250,21 +250,51 @@ nav a:hover{
     width: auto;
 }
 
+.wrapperBtnSelect{
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+}
 
 .carousel-wrapper{
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: auto;
+    width: 990px;  
     margin: 0 53px;
-    gap: 60px;
+    overflow: hidden;
 }
 
-.wrapperBtnSelect{
-    padding-top: 60px;
+.carousel{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
+    left: -990px;
+}
+
+.item{
+    display: flex;
+    gap: 90px;
+}
+
+@keyframes move-right {
+    from{left: -990px;}
+    to{left: -1980px;}
+}
+
+.transition-right{
+    animation-name: move-right;
+    animation-duration: 5s;
+}
+
+@keyframes move-left {
+    from{left: -990px;}
+    to{left: 0px;}
+}
+
+.transition-left{
+    animation-name: move-right;
+    animation-duration: 5s;
 }
 
 
@@ -319,9 +349,6 @@ nav a:hover{
     border: 2px solid #FDDCC4;
 }
 
-.cardJen{
-    margin: 0 30px;
-}
 
 .card .pet-name{
     font-family: 'Georgia';
@@ -1106,13 +1133,4 @@ nav a:hover{
         margin: 0 12px;
         gap: 40px;
     }
-
-    .cardKat{
-        margin: 0;
-    }
-
-    .cardJen{
-        margin: 0;
-    }
-
 }
