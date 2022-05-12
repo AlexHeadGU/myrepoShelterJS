@@ -446,6 +446,10 @@ nav a:hover{
         transition: all 0.3s;
     }
 
+    .header__wrapper{
+        justify-content: end;
+    }
+
     .hamburger.open{
         width: 30px;
         height: 30px;
@@ -477,6 +481,7 @@ nav a:hover{
         background-color: white;
         z-index: 1;
         gap: 40px;
+        transition: 0.5s;
     }
     
     .navigation.open{

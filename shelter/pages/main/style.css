@@ -251,11 +251,12 @@ nav a:hover{
 }
 
 
-.wrapperSelect{
+.carousel-wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
     width: auto;
+    margin: 0 53px;
     gap: 60px;
 }
 
@@ -388,14 +389,6 @@ nav a:hover{
 
 .selectBtn:hover{
     background: #FDDCC4;
-}
-
-.cardKat{
-    margin-left: 53px;
-}
-
-.cardWood{
-    margin-right: 53px;
 }
 
 .containerFour{
@@ -903,19 +896,20 @@ nav a:hover{
         justify-content: space-around;
         padding-top: 41px;
         padding-left: 6px;
+        row-gap: 10px;
     }
 
     .cardJen{
         display: none;
     }
 
-    .btn1{
+    .btn-left{
         order: 1;
         margin-left: 8px;
         margin-top: 9px;
     }
 
-    .btn2{
+    .btn-right{
         margin-right: 8px;
         margin-top: 9px;
     }
@@ -1081,6 +1075,7 @@ nav a:hover{
         background-color: #292929;
         z-index: 1;
         gap: 40px;
+        transition: 0.5s;
     }
     
     .navigation.open{
@@ -1106,10 +1101,9 @@ nav a:hover{
 
    }    
 
-    .wrapperSelect{
-        display: flex;
-        align-items: center;
+    .carousel-wrapper{
         justify-content: space-between;
+        margin: 0 12px;
         gap: 40px;
     }
 
@@ -1121,7 +1115,4 @@ nav a:hover{
         margin: 0;
     }
 
-    .wrapperBtnSelect{
-        gap: 11px;
-    }
 }
