@@ -293,10 +293,9 @@ nav a:hover{
 }
 
 .transition-left{
-    animation-name: move-right;
+    animation-name: move-left;
     animation-duration: 5s;
 }
-
 
 .btnScroll{
     width: 52px;

@@ -1,5 +1,3 @@
-
-
 const BURGER_MENU = document.querySelector(".hamburger");
 const OVERLAY = document.querySelector(".overlay");
 const NAV = document.querySelector(".navigation");
