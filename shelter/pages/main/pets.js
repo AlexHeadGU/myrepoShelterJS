@@ -1,3 +1,4 @@
+
 const pets = [
     {
       "name": "Jennifer",
@@ -88,3 +89,6 @@ const pets = [
       "parasites": ["lice", "fleas"]
     }
   ];
+
+
+export default pets;
