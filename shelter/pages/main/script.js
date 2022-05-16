@@ -1,12 +1,12 @@
-const BURGER_MENU = document.querySelector(".hamburger");
-const OVERLAY = document.querySelector(".overlay");
-const NAV = document.querySelector(".navigation");
-const BODY = document.querySelector("body");
+import pets from '../../pages/main/pets.js';
+
+// SLIDER
 const BTN_LEFT = document.querySelector("#btn-left");
 const BTN_RIGHT = document.querySelector("#btn-right");
 const CAROUSEL = document.querySelector("#carousel");
 const ITEM_LEFT = document.querySelector("#item-left");
 const ITEM_RIGHT = document.querySelector("#item-right");
+
 
 const createCardTemplate = () => {
     const card = document.createElement("div");
@@ -54,8 +54,11 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
 });
 
 
-
-
+// BURGER
+const BURGER_MENU = document.querySelector(".hamburger");
+const OVERLAY = document.querySelector(".overlay");
+const NAV = document.querySelector(".navigation");
+const BODY = document.querySelector("body");
 
 BURGER_MENU.addEventListener("click", () => {
     BURGER_MENU.classList.toggle("open"), 
@@ -63,3 +66,6 @@ BURGER_MENU.addEventListener("click", () => {
     NAV.classList.toggle("open")
     BODY.classList.toggle("hiddenScroll")
 });
+
+//ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+
