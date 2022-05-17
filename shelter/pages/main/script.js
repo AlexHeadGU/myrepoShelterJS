@@ -56,11 +56,19 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
 
     for(let i = 0; i < 3; i++){
         const card = createCardTemplate();
-        const img = document.createElement("img")
-        card.appendChild(img)
-        // let pic = card.querySelector("img")
-        img.src = `../../assets/images/${names[1]}.png`;
-        img.alt = names[1];
+        const img = document.createElement("img");
+        const p = document.createElement("p");
+        const btn = document.createElement("button");
+        card.appendChild(img);
+        card.appendChild(p);
+        card.appendChild(btn);
+        let j = Math.floor(Math.random() * pets.length);
+        img.src = `../../assets/images/${pets[j].name.toLowerCase()}.png`;
+        img.alt = pets[j].name.toLowerCase();
+        p.innerHTML = pets[j].name;
+        p.classList.add("pet-name");
+        btn.innerHTML = "Learn more";
+        btn.classList.add("cardBtn")
         changedItem.appendChild(card);
     }
 
