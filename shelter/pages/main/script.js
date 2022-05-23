@@ -1,5 +1,20 @@
 import pets from '../../pages/main/pets.js';
 
+
+// BURGER
+const BURGER_MENU = document.querySelector(".hamburger");
+const OVERLAY = document.querySelector(".overlay");
+const NAV = document.querySelector(".navigation");
+const BODY = document.querySelector("body");
+
+BURGER_MENU.addEventListener("click", () => {
+    BURGER_MENU.classList.toggle("open"), 
+    OVERLAY.classList.toggle("active"), 
+    NAV.classList.toggle("open")
+    BODY.classList.toggle("hiddenScroll")
+});
+
+
 // SLIDER
 const BTN_LEFT = document.querySelector("#btn-left");
 const BTN_RIGHT = document.querySelector("#btn-right");
@@ -120,18 +135,17 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
     BTN_RIGHT.addEventListener("click", moveRight);
 });
 
-// BURGER
-const BURGER_MENU = document.querySelector(".hamburger");
-const OVERLAY = document.querySelector(".overlay");
-const NAV = document.querySelector(".navigation");
-const BODY = document.querySelector("body");
+// POP UP
 
-BURGER_MENU.addEventListener("click", () => {
-    BURGER_MENU.classList.toggle("open"), 
-    OVERLAY.classList.toggle("active"), 
-    NAV.classList.toggle("open")
-    BODY.classList.toggle("hiddenScroll")
-});
+const POPUP_OVERLAY = document.querySelector(".popup-overlay");
+const PET_CARDS = document.querySelectorAll(".card");
+
+const MOVE_POPUP = () => {
+    POPUP_OVERLAY.classList.toggle("hidden");
+}
+
+PET_CARDS.forEach((elem) => { elem.addEventListener('click', MOVE_POPUP) }); 
+POPUP_OVERLAY.addEventListener('click', MOVE_POPUP); 
+// PET_CARDS.forEach((elem) => { elem.addEventListener('click', scrollPopup) });
 
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-

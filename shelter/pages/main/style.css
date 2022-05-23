@@ -54,7 +54,7 @@
 }
 
 .header__logo-line{
-    z-index: 1000;
+    z-index: 10;
 }
 
 .title-logo{
@@ -250,6 +250,106 @@ nav a:hover{
     width: auto;
 }
 
+.popup-overlay{
+    position: fixed;
+    z-index: 11;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(41, 41, 41, 0.6);
+}
+
+.popup{
+    position: fixed;
+    max-width: 952px;
+    z-index: 12;
+    /* height: 552px; */
+    top: 20%;
+    left: 20%;
+}
+
+.window-information{
+    display: flex;
+    max-width: 900px;
+    background: #FAFAFA;
+    border-radius: 9px;
+    overflow-y: auto;
+}
+
+.window-information img{
+    width: 500px;
+    height: 500px;
+}
+
+.card-article{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 12px 88px 29px;
+}
+
+.card-pet-name{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.card-breed{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;  
+    letter-spacing: 0.06em;  
+    color: #000000;
+}
+
+.card-about{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    max-width: 350px;
+    margin: 40px 0;
+}
+
+.card-article ul li{
+    margin: 10px 15px;
+}
+
+.characteristic-title{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    font-weight: 700;
+}
+
+.characteristic-value{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #000000;
+}
+
+.hidden{
+    display: none;
+}
+
 .wrapperBtnSelect{
     display: flex;
     align-items: center;
@@ -386,7 +486,6 @@ nav a:hover{
     margin-bottom: 30px;
     transition: ease-in-out 0.2s;
     cursor: pointer;
-
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -394,6 +493,7 @@ nav a:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 15px 45px;
     margin-top: 60px;
     background: #F1CDB3;
@@ -698,7 +798,10 @@ nav a:hover{
     }
 
     .carousel-wrapper{
-        width: 580px;  
+        width: 580px; 
+        justify-content: space-between;
+        margin: 0 12px;
+        gap: 40px;
     }
     
     .carousel{
@@ -764,10 +867,6 @@ nav a:hover{
         padding-bottom: 80px;
     }
 
-    .cardWood{
-        display: none;
-    }
-
     .wrapperService{
         max-width: 630px;
         column-gap: 60px;
@@ -808,7 +907,7 @@ nav a:hover{
 @media (max-width: 767px) {
 
     @keyframes move-right {
-        from{left: -280px;}
+        from{left: -270px;}
         to{left: -540px;}
     }
     
@@ -818,7 +917,7 @@ nav a:hover{
     }
     
     @keyframes move-left {
-        from{left: -280px;}
+        from{left: -270px;}
         to{left: 0px;}
     }
     
@@ -833,11 +932,7 @@ nav a:hover{
     }
     
     .carousel{
-        left: -280px;
-    }
-    
-    .item{
-        gap: 40px;
+        left: -270px;
     }
 
     .card-2{
@@ -848,7 +943,6 @@ nav a:hover{
         max-width: auto;
     }
     
-
     .header{
         padding: 30px 53px 0 10px;  
     }  
@@ -1188,22 +1282,3 @@ nav a:hover{
         font-size: 32px;
         line-height: 160%;
     }
-}
-
-@media (max-width: 1279px) {
-
-    .cardWood{
-        display: none;
-    }
-
-   .wrapperBtnSelect{
-       width: auto;
-
-   }    
-
-    .carousel-wrapper{
-        justify-content: space-between;
-        margin: 0 12px;
-        gap: 40px;
-    }
-}
