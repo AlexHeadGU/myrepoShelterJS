@@ -7,16 +7,19 @@ const CAROUSEL = document.querySelector("#carousel");
 const ITEM_LEFT = document.querySelector("#item-left");
 const ITEM_RIGHT = document.querySelector("#item-right");
 const ITEM_ACTIVE = document.querySelector("#item-active");
-const names = [];
+const DESKTOP = window.matchMedia('(min-width: 1280px)');
+const TABLET = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
+const MOBILE = window.matchMedia('(min-width: 320px)  and (max-width: 767px)');
+const NAMES = [];
 
 const createCardTemplate = (direction) => {
     let img;
     let p;
-    let newArr = ITEM_ACTIVE.querySelectorAll("p");
-    let activeArr = [];
+    const NEW_ARR = ITEM_ACTIVE.querySelectorAll("p");
+    let currentPetsOnPage = [];
 
-    for(let i = 0; i < newArr.length; i++){
-        activeArr.push(newArr[i].textContent);
+    for(let i = 0; i < NEW_ARR.length; i++){
+        currentPetsOnPage.push(NEW_ARR[i].textContent);
     }
 
     for(let i = 0; i < 3; i++){
@@ -31,35 +34,51 @@ const createCardTemplate = (direction) => {
         for(let k = 0; k < 1; k++){
             let j = Math.floor(Math.random() * pets.length);
 
-            if(activeArr.includes(pets[j].name)){
+            if(currentPetsOnPage.includes(pets[j].name)){
                 k--;
             }else{
                 img[i].src = `../../assets/images/${pets[j].name.toLowerCase()}.png`;
                 img[i].alt = pets[j].name.toLowerCase();
                 p[i].innerHTML = pets[j].name;
-                activeArr.push(pets[j].name);
+                currentPetsOnPage.push(pets[j].name);
             }
         }
     }
 };
 
 const moveLeft = () => {
-    CAROUSEL.classList.add("transition-left");
+
+    if(DESKTOP.matches){
+        CAROUSEL.classList.add("transition-left-desktop");
+    }else if(TABLET.matches){
+        CAROUSEL.classList.add("transition-left-tablet");
+    }else{
+        CAROUSEL.classList.add("transition-left-mobile");
+    }
+
     createCardTemplate("left");
     BTN_LEFT.removeEventListener("click", moveLeft);
     BTN_RIGHT.removeEventListener("click", moveRight);
 };
 
 const moveRight = () => {
-    CAROUSEL.classList.add("transition-right");
+
+    if(DESKTOP.matches){
+        CAROUSEL.classList.add("transition-right-desktop");
+    }else if(TABLET.matches){
+        CAROUSEL.classList.add("transition-right-tablet");
+    }else{
+        CAROUSEL.classList.add("transition-right-mobile");
+    }
+
     createCardTemplate("right");
     BTN_LEFT.removeEventListener("click", moveLeft);
     BTN_RIGHT.removeEventListener("click", moveRight);
 };
 
 for(let i = 0; i < pets.length; i++){
-  if(!names.includes(pets[i].name)){
-    names.push(pets[i].name) 
+  if(!NAMES.includes(pets[i].name)){
+    NAMES.push(pets[i].name) 
   }
 };
 
@@ -67,7 +86,11 @@ BTN_LEFT.addEventListener("click", moveLeft);
 BTN_RIGHT.addEventListener("click", moveRight);
 
 const REMOVE_CLASS = (direction) => {
-    CAROUSEL.classList.remove(`transition-${direction}`);
+
+    console.log("aaaaaa");
+        CAROUSEL.classList.remove(`transition-${direction}-desktop`);;
+        CAROUSEL.classList.remove(`transition-${direction}-tablet`);;
+        CAROUSEL.classList.remove(`transition-${direction}-mobile`);;
 
     if(direction==="left"){
         let changedItem = ITEM_LEFT;
@@ -86,6 +109,7 @@ const REMOVE_CLASS = (direction) => {
 }
 
 CAROUSEL.addEventListener("animationend", (animationEvent) => {
+    console.log("22222222");
     if(animationEvent.animationName === "move-left"){
         REMOVE_CLASS("left");
     }else{
@@ -95,18 +119,6 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
     BTN_LEFT.addEventListener("click", moveLeft);
     BTN_RIGHT.addEventListener("click", moveRight);
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 // BURGER
 const BURGER_MENU = document.querySelector(".hamburger");

@@ -282,7 +282,7 @@ nav a:hover{
     to{left: -1980px;}
 }
 
-.transition-right{
+.transition-right-desktop{
     animation-name: move-right;
     animation-duration: 2s;
 }
@@ -292,7 +292,7 @@ nav a:hover{
     to{left: 0px;}
 }
 
-.transition-left{
+.transition-left-desktop{
     animation-name: move-left;
     animation-duration: 2s;
 }
@@ -677,6 +677,42 @@ nav a:hover{
 /* РАЗРЕШЕНИЕ  меньше 1280px */
 @media (max-width: 1279px) {
 
+    @keyframes move-right {
+        from{left: -580px;}
+        to{left: -1160px;}
+    }
+    
+    .transition-right-tablet{
+        animation-name: move-right;
+        animation-duration: 2s;
+    }
+    
+    @keyframes move-left {
+        from{left: -580px;}
+        to{left: 0px;}
+    }
+    
+    .transition-left-tablet{
+        animation-name: move-left;
+        animation-duration: 2s;
+    }
+
+    .carousel-wrapper{
+        width: 580px;  
+    }
+    
+    .carousel{
+        left: -580px;
+    }
+    
+    .item{
+        gap: 40px;
+    }
+
+    .card-3{
+        display: none;
+    }
+
     .wrapper {
         max-width: 768px;
     }
@@ -770,6 +806,43 @@ nav a:hover{
 
 /* РАЗРЕШЕНИЕ  меньше 768px */
 @media (max-width: 767px) {
+
+    @keyframes move-right {
+        from{left: -280px;}
+        to{left: -540px;}
+    }
+    
+    .transition-right-mobile{
+        animation-name: move-right;
+        animation-duration: 2s;
+    }
+    
+    @keyframes move-left {
+        from{left: -280px;}
+        to{left: 0px;}
+    }
+    
+    .transition-left-mobile{
+        animation-name: move-left;
+        animation-duration: 2s;
+    }
+
+    .carousel-wrapper{
+        margin: 0;
+        width: 270px;  
+    }
+    
+    .carousel{
+        left: -280px;
+    }
+    
+    .item{
+        gap: 40px;
+    }
+
+    .card-2{
+        display: none;
+    }
 
     .wrapper {
         max-width: auto;
