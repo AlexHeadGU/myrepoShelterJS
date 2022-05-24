@@ -138,13 +138,17 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
 // POP UP
 
 const POPUP_OVERLAY = document.querySelector(".popup-overlay");
+const POPUP = document.querySelector(".popup")
 const PET_CARDS = document.querySelectorAll(".card");
+const CROSS_BTN = document.querySelector(".closeBtn");
 
 const MOVE_POPUP = () => {
     POPUP_OVERLAY.classList.toggle("hidden");
+    POPUP.classList.toggle("hidden");
 }
 
 PET_CARDS.forEach((elem) => { elem.addEventListener('click', MOVE_POPUP) }); 
+CROSS_BTN.addEventListener('click', MOVE_POPUP); 
 POPUP_OVERLAY.addEventListener('click', MOVE_POPUP); 
 // PET_CARDS.forEach((elem) => { elem.addEventListener('click', scrollPopup) });
 

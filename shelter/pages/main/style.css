@@ -262,11 +262,9 @@ nav a:hover{
 
 .popup{
     position: fixed;
-    max-width: 952px;
     z-index: 12;
-    /* height: 552px; */
-    top: 20%;
-    left: 20%;
+    top: 50%;
+    left: 50%;
 }
 
 .window-information{
@@ -344,6 +342,27 @@ nav a:hover{
     line-height: 110%;
     letter-spacing: 0.06em;
     color: #000000;
+}
+
+.closeBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -42px;
+    top: -52px;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    box-sizing: border-box;
+    border-radius: 100px;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;    
+    margin-right: 0;
+}
+
+.closeBtn:hover{
+    background: #FDDCC4;
 }
 
 .hidden{
@@ -1282,3 +1301,4 @@ nav a:hover{
         font-size: 32px;
         line-height: 160%;
     }
+}
