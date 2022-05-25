@@ -1,5 +1,13 @@
 import pets from '../../pages/main/pets.js';
 
+function preloadImages(name) {
+    for (let i = 1; i <= 8; i++) {
+      const img = new Image();
+      img.src = `../../assets/images/${name}.png`; 
+    }
+  } 
+  const names = ['charly', 'freddie', 'jennifer', 'katrine', 'scarlett', 'sophia', 'timmy', 'woody'];
+  names.forEach((elem) => preloadImages(elem));
 
 // BURGER
 const BURGER_MENU = document.querySelector(".hamburger");
@@ -22,6 +30,7 @@ const CAROUSEL = document.querySelector("#carousel");
 const ITEM_LEFT = document.querySelector("#item-left");
 const ITEM_RIGHT = document.querySelector("#item-right");
 const ITEM_ACTIVE = document.querySelector("#item-active");
+const CARDS_CENTER = document.querySelectorAll('.cards-center');
 const DESKTOP = window.matchMedia('(min-width: 1280px)');
 const TABLET = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
 const MOBILE = window.matchMedia('(min-width: 320px)  and (max-width: 767px)');
@@ -102,37 +111,45 @@ BTN_RIGHT.addEventListener("click", moveRight);
 
 const REMOVE_CLASS = (direction) => {
 
-    console.log("aaaaaa");
         CAROUSEL.classList.remove(`transition-${direction}-desktop`);;
         CAROUSEL.classList.remove(`transition-${direction}-tablet`);;
         CAROUSEL.classList.remove(`transition-${direction}-mobile`);;
-
-    if(direction==="left"){
-        let changedItem = ITEM_LEFT;
-        document.querySelector("#item-active").innerHTML = ITEM_LEFT.innerHTML;
-    }else{
-        let changedItem = ITEM_RIGHT;
-        document.querySelector("#item-active").innerHTML = ITEM_RIGHT.innerHTML;
-    }
-    
-    let elem = document.querySelector("#item-active")
-    var matches = elem.querySelectorAll("div.card");
-
-    for (let i = 0; i < matches.length; i++){
-        matches[i].classList.remove(`cards-${direction}`); 
-    }
 }
 
 CAROUSEL.addEventListener("animationend", (animationEvent) => {
-    console.log("22222222");
-    if(animationEvent.animationName === "move-left"){
-        REMOVE_CLASS("left");
-    }else{
-        REMOVE_CLASS("right");
-        };
-    
+
     BTN_LEFT.addEventListener("click", moveLeft);
     BTN_RIGHT.addEventListener("click", moveRight);
+
+    if(animationEvent.animationName === "move-left"){
+        REMOVE_CLASS("left");
+        const LEFT_CARD = ITEM_LEFT.querySelectorAll('.card')
+
+        let c = 0;
+        CARDS_CENTER.forEach((elem) => {
+            let p = LEFT_CARD[c].querySelector('p');
+            let img = LEFT_CARD[c].querySelector('img');
+            elem.querySelector('img').src = `../../assets/images/${p.textContent}.png`;    
+            elem.querySelector('p').textContent = p.textContent;
+              
+          c++;
+        });
+    }else{
+        REMOVE_CLASS("right");
+        const RIGHT_CARD = ITEM_RIGHT.querySelectorAll('.card')
+
+        let c = 0;
+        CARDS_CENTER.forEach((elem) => {
+            let p = RIGHT_CARD[c].querySelector('p');
+            let img = RIGHT_CARD[c].querySelector('img');
+            elem.querySelector('img').src = `../../assets/images/${p.textContent}.png`;    
+            elem.querySelector('p').textContent = p.textContent;
+              
+          c++;
+        });
+        };
+    
+
 });
 
 // POP UP
@@ -145,11 +162,14 @@ const CROSS_BTN = document.querySelector(".closeBtn");
 const MOVE_POPUP = () => {
     POPUP_OVERLAY.classList.toggle("hidden");
     POPUP.classList.toggle("hidden");
+    BODY.classList.toggle("no-scroll");
 }
 
-PET_CARDS.forEach((elem) => { elem.addEventListener('click', MOVE_POPUP) }); 
+PET_CARDS.forEach((elem) => { 
+    elem.addEventListener('click', MOVE_POPUP);
+}); 
+
 CROSS_BTN.addEventListener('click', MOVE_POPUP); 
 POPUP_OVERLAY.addEventListener('click', MOVE_POPUP); 
-// PET_CARDS.forEach((elem) => { elem.addEventListener('click', scrollPopup) });
 
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff

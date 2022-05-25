@@ -4,6 +4,10 @@
 
 }
 
+.no-scroll{
+    overflow:  hidden;
+}
+
 .overlay{
     display: none;
     position: fixed;
@@ -263,13 +267,17 @@ nav a:hover{
 .popup{
     position: fixed;
     z-index: 12;
-    top: 50%;
     left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .window-information{
     display: flex;
+    justify-content: center;
     max-width: 900px;
+    max-height: 500px;
+    width: 70vw;
     background: #FAFAFA;
     border-radius: 9px;
     overflow-y: auto;
@@ -277,12 +285,12 @@ nav a:hover{
 
 .window-information img{
     width: 500px;
-    height: 500px;
 }
 
 .card-article{
     display: flex;
     flex-direction: column;
+    max-width: 352px;
     margin: 50px 12px 88px 29px;
 }
 
@@ -321,6 +329,7 @@ nav a:hover{
 
 .card-article ul li{
     margin: 10px 15px;
+    color: #F1CDB3;
 }
 
 .characteristic-title{
