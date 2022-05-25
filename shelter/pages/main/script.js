@@ -1,5 +1,6 @@
 import pets from '../../pages/main/pets.js';
 
+
 function preloadImages(name) {
     for (let i = 1; i <= 8; i++) {
       const img = new Image();
@@ -124,15 +125,21 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
     if(animationEvent.animationName === "move-left"){
         REMOVE_CLASS("left");
         const LEFT_CARD = ITEM_LEFT.querySelectorAll('.card')
+        const CARD3 = document.querySelector(".card-5")
+        let newArr = []
+        for(let i = 0; i < LEFT_CARD.length; i++){
+            let p = LEFT_CARD[i].querySelector('p');
+            newArr.push(p.textContent);
+        }
 
         let c = 0;
+
         CARDS_CENTER.forEach((elem) => {
             let p = LEFT_CARD[c].querySelector('p');
             let img = LEFT_CARD[c].querySelector('img');
-            elem.querySelector('img').src = `../../assets/images/${p.textContent}.png`;    
+            elem.querySelector('img').src = `../../assets/images/${p.innerHTML}.png`;    
             elem.querySelector('p').textContent = p.textContent;
-              
-          c++;
+            c++;
         });
     }else{
         REMOVE_CLASS("right");
@@ -173,3 +180,4 @@ CROSS_BTN.addEventListener('click', MOVE_POPUP);
 POPUP_OVERLAY.addEventListener('click', MOVE_POPUP); 
 
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+
