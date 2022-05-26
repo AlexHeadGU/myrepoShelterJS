@@ -274,7 +274,7 @@ nav a:hover{
 
 .window-information{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     max-width: 900px;
     max-height: 500px;
     width: 70vw;
@@ -320,11 +320,11 @@ nav a:hover{
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
-    line-height: 110%;
+    line-height: 114%;
     letter-spacing: 0.06em;
     color: #000000;
     max-width: 350px;
-    margin: 40px 0;
+    margin: 40px 0 29px 0;
 }
 
 .card-article ul li{

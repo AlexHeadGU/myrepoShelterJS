@@ -129,13 +129,11 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
         for(let i = 0; i < LEFT_CARD.length; i++){
             let p = LEFT_CARD[i].querySelector('.pet-name');
             newArr.push(`../../assets/images/${p.textContent.toLowerCase()}.png`);
-            console.log(newArr)
         }
 
         let c = 0;
 
         CARDS_CENTER.forEach((elem) => {
-            console.log(newArr)
             let p = LEFT_CARD[c].querySelector('.pet-name');
             elem.querySelector('img').src = `../../assets/images/${newArr[c]}`;    
             elem.querySelector('p').textContent = p.textContent;    
@@ -157,8 +155,6 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
             c++;
         });
         };
-    
-
 });
 
 // POP UP
@@ -168,17 +164,52 @@ const POPUP = document.querySelector(".popup")
 const PET_CARDS = document.querySelectorAll(".card");
 const CROSS_BTN = document.querySelector(".closeBtn");
 
-const MOVE_POPUP = () => {
-    POPUP_OVERLAY.classList.toggle("hidden");
-    POPUP.classList.toggle("hidden");
-    BODY.classList.toggle("no-scroll");
+const createPopupCard = (event) => {
+
+    let currentPetName = event.currentTarget.querySelector('.pet-name').innerHTML;
+    let currentPetInfo = pets.find((element, index, array) => {
+      if (array[index]["name"] === currentPetName) {
+        return array[index];
+      }
+    });
+  
+    const petImagePopup = document.querySelector('.card-img');
+    const petNamePopup = document.querySelector('.card-pet-name');
+    const petTypeBreed = document.querySelector('.card-breed');
+    const petDescription = document.querySelector('.card-about');
+    const petAge = document.querySelector('.characteristic-value.age');
+    const petInoculations = document.querySelector('.characteristic-value.inoculations');
+    const petDiseases = document.querySelector('.characteristic-value.diseases');
+    const petParasites = document.querySelector('.characteristic-value.parasites');
+  
+    petImagePopup.src = `${currentPetInfo["img"]}`;
+    petNamePopup.textContent = `${currentPetInfo["name"]}`;
+    petTypeBreed.textContent = `${currentPetInfo["type"]} - ${currentPetInfo["breed"]}`;
+    petDescription.textContent = `${currentPetInfo["description"]}`;
+    petAge.textContent = `${currentPetInfo["age"]}`;
+    petInoculations.textContent = `${currentPetInfo["inoculations"]}`;
+    petDiseases.textContent = `${currentPetInfo["diseases"]}`;
+    petParasites.textContent = `${currentPetInfo["parasites"]}`;   
+}
+
+const openPopUp = (event) => {
+    POPUP_OVERLAY.classList.remove("hidden");
+    POPUP.classList.remove("hidden");
+    BODY.classList.add("no-scroll");
+    createPopupCard(event);
+}
+
+const closePopUp = () => {
+    POPUP_OVERLAY.classList.add("hidden");
+    POPUP.classList.add("hidden");
+    BODY.classList.remove("no-scroll");
 }
 
 PET_CARDS.forEach((elem) => { 
-    elem.addEventListener('click', MOVE_POPUP);
+    elem.addEventListener('click', openPopUp);
 }); 
 
-CROSS_BTN.addEventListener('click', MOVE_POPUP); 
-POPUP_OVERLAY.addEventListener('click', MOVE_POPUP); 
+CROSS_BTN.addEventListener('click', closePopUp); 
+POPUP_OVERLAY.addEventListener('click', closePopUp); 
 
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
