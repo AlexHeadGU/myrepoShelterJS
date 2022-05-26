@@ -40,7 +40,7 @@ const NAMES = [];
 const createCardTemplate = (direction) => {
     let img;
     let p;
-    const NEW_ARR = ITEM_ACTIVE.querySelectorAll("p");
+    const NEW_ARR = ITEM_ACTIVE.querySelectorAll(".pet-name");
     let currentPetsOnPage = [];
 
     for(let i = 0; i < NEW_ARR.length; i++){
@@ -49,11 +49,11 @@ const createCardTemplate = (direction) => {
 
     for(let i = 0; i < 3; i++){
         if(direction === "left"){
-            img = ITEM_LEFT.querySelectorAll("img");
-            p = ITEM_LEFT.querySelectorAll("p");
+            img = ITEM_LEFT.querySelectorAll(".pet-img");
+            p = ITEM_LEFT.querySelectorAll(".pet-name");
         }else{
-            img = ITEM_RIGHT.querySelectorAll("img");
-            p = ITEM_RIGHT.querySelectorAll("p");
+            img = ITEM_RIGHT.querySelectorAll(".pet-img");
+            p = ITEM_RIGHT.querySelectorAll(".pet-name");
         }
 
         for(let k = 0; k < 1; k++){
@@ -125,34 +125,36 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
     if(animationEvent.animationName === "move-left"){
         REMOVE_CLASS("left");
         const LEFT_CARD = ITEM_LEFT.querySelectorAll('.card')
-        const CARD3 = document.querySelector(".card-5")
         let newArr = []
         for(let i = 0; i < LEFT_CARD.length; i++){
-            let p = LEFT_CARD[i].querySelector('p');
-            newArr.push(p.textContent);
+            let p = LEFT_CARD[i].querySelector('.pet-name');
+            newArr.push(`../../assets/images/${p.textContent.toLowerCase()}.png`);
+            console.log(newArr)
         }
 
         let c = 0;
 
         CARDS_CENTER.forEach((elem) => {
-            let p = LEFT_CARD[c].querySelector('p');
-            let img = LEFT_CARD[c].querySelector('img');
-            elem.querySelector('img').src = `../../assets/images/${p.innerHTML}.png`;    
-            elem.querySelector('p').textContent = p.textContent;
+            console.log(newArr)
+            let p = LEFT_CARD[c].querySelector('.pet-name');
+            elem.querySelector('img').src = `../../assets/images/${newArr[c]}`;    
+            elem.querySelector('p').textContent = p.textContent;    
             c++;
         });
     }else{
         REMOVE_CLASS("right");
         const RIGHT_CARD = ITEM_RIGHT.querySelectorAll('.card')
-
+        let newArr = []
+        for(let i = 0; i < RIGHT_CARD.length; i++){
+            let p = RIGHT_CARD[i].querySelector('.pet-name');
+            newArr.push(`../../assets/images/${p.textContent.toLowerCase()}.png`);
+        }
         let c = 0;
         CARDS_CENTER.forEach((elem) => {
-            let p = RIGHT_CARD[c].querySelector('p');
-            let img = RIGHT_CARD[c].querySelector('img');
-            elem.querySelector('img').src = `../../assets/images/${p.textContent}.png`;    
-            elem.querySelector('p').textContent = p.textContent;
-              
-          c++;
+            let p = RIGHT_CARD[c].querySelector('.pet-name');
+            elem.querySelector('img').src = `../../assets/images/${newArr[c]}`;    
+            elem.querySelector('p').textContent = p.textContent;   
+            c++;
         });
         };
     
@@ -180,4 +182,3 @@ CROSS_BTN.addEventListener('click', MOVE_POPUP);
 POPUP_OVERLAY.addEventListener('click', MOVE_POPUP); 
 
 //ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-
