@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pets</title>
         <link rel="stylesheet" href="style.css">
-        <script async src="script.js"></script>
+        <script async type="module" src="script.js"></script>
     </head>
 
     <!-- start BODY -->
@@ -43,6 +43,37 @@
 
         <!-- start MAIN -->
         <section class="select-animals">
+            <div class="popup-overlay hidden"></div>
+            <div class="popup hidden">
+                <div class="closeBtn">
+                    <img class="cross" src="../../assets/icons/cross.svg" alt="X"></div>
+                <div class="window-information">
+                    <img src="../../assets/images/jennifer.png" alt="Jennifer" class="card-img">
+                    <div class="card-article">
+                        <p class="card-pet-name"></p>
+                        <p class="card-breed"></p>
+                        <p class="card-about"></p>
+                        <ul class="pet-characteristics">
+                            <li>
+                                <span class="characteristic-title age">Age:</span>
+                                <span class="characteristic-value age"></span>
+                            </li>
+                            <li>
+                                <span class="characteristic-title inoculations">Inoculations:</span>
+                                <span class="characteristic-value inoculations"></span>
+                            </li>
+                            <li>
+                                <span class="characteristic-title diseases">Diseases:</span>
+                                <span class="characteristic-value diseases"></span>
+                            </li>
+                            <li>
+                                <span class="characteristic-title parasites">Parasites:</span>
+                                <span class="characteristic-value parasites"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="wrappers-animals">
 
                 <h3 class="title-animals">Our friends who<br>

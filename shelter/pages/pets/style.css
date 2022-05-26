@@ -21,6 +21,8 @@
     overflow: hidden;
 }
 
+
+
 .wrapper {
     max-width: 1280px;
     margin: auto;
@@ -132,6 +134,140 @@ nav a:hover{
     background: #F6F6F6;
 }
 
+
+.popup-overlay{
+    position: fixed;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(41, 41, 41, 0.6);
+}
+
+.popup-overlay:hover ~ .popup > .closeBtn {
+    background-color: #FDDCC4;
+  }
+
+
+.popup{
+    position: fixed;
+    z-index: 1002;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.window-information{
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    max-height: 500px;
+    width: 70vw;
+    background: #FAFAFA;
+    border-radius: 9px;
+    overflow-y: auto;
+}
+
+.window-information img{
+    width: 500px;
+}
+
+.card-article{
+    display: flex;
+    flex-direction: column;
+    max-width: 352px;
+    margin: 50px 12px 88px 29px;
+}
+
+.card-pet-name{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.card-breed{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;  
+    letter-spacing: 0.06em;  
+    color: #000000;
+}
+
+.card-about{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 114%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    max-width: 350px;
+    margin: 40px 0 29px 0;
+}
+
+.card-article ul li{
+    margin: 10px 15px;
+    color: #F1CDB3;
+}
+
+.characteristic-title{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #000000;
+    font-weight: 700;
+}
+
+.characteristic-value{
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    color: #000000;
+}
+
+.closeBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -42px;
+    top: -52px;
+    width: 52px;
+    height: 52px;
+    border: 2px solid #F1CDB3;
+    box-sizing: border-box;
+    border-radius: 100px;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;    
+    margin-right: 0;
+}
+
+.closeBtn:hover{
+    background: #FDDCC4;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.no-scroll{
+    overflow:  hidden;
+}
 .wrappers-animals{
     display: flex;
     flex-direction: column;

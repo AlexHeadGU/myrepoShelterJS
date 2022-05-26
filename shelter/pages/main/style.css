@@ -34,7 +34,7 @@
 .containerStart{
     max-width: 1280px;
     margin: auto;
-        overflow-x:hidden;
+    overflow-x:hidden;
     background: url(../../assets/images/noise_transparent@2x.png) repeat, radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%);
 }
 
@@ -264,6 +264,10 @@ nav a:hover{
     background: rgba(41, 41, 41, 0.6);
 }
 
+.popup-overlay:hover ~ .popup > .closeBtn {
+    background-color: #FDDCC4;
+  }
+
 .popup{
     position: fixed;
     z-index: 12;
@@ -274,7 +278,7 @@ nav a:hover{
 
 .window-information{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     max-width: 900px;
     max-height: 500px;
     width: 70vw;

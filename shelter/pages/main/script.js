@@ -34,7 +34,6 @@ const ITEM_ACTIVE = document.querySelector("#item-active");
 const CARDS_CENTER = document.querySelectorAll('.cards-center');
 const DESKTOP = window.matchMedia('(min-width: 1280px)');
 const TABLET = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
-const MOBILE = window.matchMedia('(min-width: 320px)  and (max-width: 767px)');
 const NAMES = [];
 
 const createCardTemplate = (direction) => {
@@ -211,5 +210,3 @@ PET_CARDS.forEach((elem) => {
 
 CROSS_BTN.addEventListener('click', closePopUp); 
 POPUP_OVERLAY.addEventListener('click', closePopUp); 
-
-//ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
