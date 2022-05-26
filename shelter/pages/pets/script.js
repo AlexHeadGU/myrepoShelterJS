@@ -1,5 +1,15 @@
 import pets from '../../pages/main/pets.js';
 
+function preloadImages(name) {
+    for (let i = 1; i <= 8; i++) {
+      const img = new Image();
+      img.src = `../../assets/images/${name}.png`; 
+    }
+  } 
+  const names = ['charly', 'freddie', 'jennifer', 'katrine', 'scarlett', 'sophia', 'timmy', 'woody'];
+  names.forEach((elem) => preloadImages(elem));
+
+// BURGER MENU
 
 const BURGER_MENU = document.querySelector(".hamburger");
 const OVERLAY = document.querySelector(".overlay");
@@ -12,6 +22,8 @@ BURGER_MENU.addEventListener("click", () => {
     NAV.classList.toggle("open")
     BODY.classList.toggle("hiddenScroll")
 });
+
+// POP UP
 
 const POPUP_OVERLAY = document.querySelector(".popup-overlay");
 const POPUP = document.querySelector(".popup")
@@ -65,3 +77,35 @@ PET_CARDS.forEach((elem) => {
 
 CROSS_BTN.addEventListener('click', closePopUp); 
 POPUP_OVERLAY.addEventListener('click', closePopUp); 
+
+// PAGINATION
+
+let petsForPagination = [];
+let namesArray = [];
+let newResult = [];
+let randomValue;
+
+for(let i = 0; i < pets.length; i++){
+    namesArray.push(pets[i].name)
+}
+
+const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+const createRandomPets = () => {
+    for(let i = 0; i < 6; i++){
+        shuffle(namesArray);
+        newResult.push(namesArray);
+        console.log(namesArray);
+    }
+    
+    console.log(newResult)
+}
+
+  window.addEventListener('load', createRandomPets());
+
+//wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
