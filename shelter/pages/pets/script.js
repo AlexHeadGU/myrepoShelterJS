@@ -81,31 +81,81 @@ POPUP_OVERLAY.addEventListener('click', closePopUp);
 // PAGINATION
 
 let petsForPagination = [];
-let namesArray = [];
+let existsIndex = [];
 let newResult = [];
+let namesArray = [];
+
 let randomValue;
 
-for(let i = 0; i < pets.length; i++){
-    namesArray.push(pets[i].name)
+// const generateRandom = () => {
+//   return Math.floor(Math.random() * pets.length);
+// } 
+
+// existsIndex = [{1: 1},{2: 2},{3: 3},{4: 4},{5: 5},{6: 6}]
+
+const fillingArray = () => {
+  // existsIndex = [];
+  // console.log(pets)
+  existsIndex = [{1: 1},{2: 2},{3: 3},{4: 4},{5: 5},{6: 6}]
+  console.log("оригинал ")
+  console.log(existsIndex)
+  // for(let i = 0; i < pets.length; i++){
+  //   existsIndex.push(i);
+  // }
 }
 
 const shuffle = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
-      [array[i], array[j]] = [array[j], array[i]];
-    }
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
 }
 
-const createRandomPets = () => {
-    for(let i = 0; i < 6; i++){
-        shuffle(namesArray);
-        newResult.push(namesArray);
-        console.log(namesArray);
-    }
+// const petsSubsequence = () => {
+
+  for(let i = 0; i < 6; i++){
+    fillingArray();
+    shuffle(existsIndex);
+    console.log("После мешанины ")
+    console.log(existsIndex)
+    petsForPagination.push(existsIndex);
     
-    console.log(newResult)
-}
+  }
 
-  window.addEventListener('load', createRandomPets());
+  console.log(petsForPagination)
+
+
+
+  // console.log(existsIndex)
+// }
+
+
+// for(let i = 0; i < pets.length; i++){
+//     namesArray.push(pets[i].name)
+// }
+
+
+
+// const shuffle = (array) => {
+//     for (let i = array.length - 1; i > 0; i--) {
+//       let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+//       [array[i], array[j]] = [array[j], array[i]];
+//     }
+// }
+// console.log(pets)
+
+// const createRandomPets = () => {
+//     for(let i = 0; i < 6; i++){
+//         namesArray = pets
+//         console.log(namesArray)
+//         shuffle(namesArray);
+//         console.log(namesArray);
+//         newResult.push(namesArray);
+//     }
+    
+//     console.log(newResult)
+// }
+
+  // window.addEventListener('load', petsSubsequence());
 
 //wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
