@@ -850,7 +850,6 @@ nav a:hover{
     }
 
     .window-information{
-        height: 350px;
         min-width: 630px;
     }
     
@@ -860,7 +859,7 @@ nav a:hover{
     
     .card-article{
         max-width: 260px;
-        margin: 11px 9px 37px 11px;
+        margin: 11px 9px 10px 11px;
     }
 
     .card-pet-name{
@@ -1004,7 +1003,6 @@ nav a:hover{
     }
 
     .window-information{
-        height: 341px;
         min-width: 240px;
     }
     
@@ -1025,7 +1023,11 @@ nav a:hover{
         text-align: justify;
         margin: 21px 0 20px 0;
     }
-    
+
+    .card-article{
+        max-width: 220px;
+    }
+
     .card-article ul li{
         align-items: center;
     }
@@ -1035,10 +1037,6 @@ nav a:hover{
         top: -53px;
     }
 
-    .wrapper {
-        max-width: auto;
-    }
-    
     .header{
         padding: 30px 53px 0 10px;  
     }  

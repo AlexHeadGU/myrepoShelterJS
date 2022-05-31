@@ -515,6 +515,39 @@ nav a:hover{
         padding: 13px 29px 0 28px;
         gap: 58px 54px;
     }
+    .card-3{
+        display: none;
+    }
+
+    .window-information{
+        min-width: 630px;
+    }
+    
+    .window-information img{
+        width: 350px;
+    }
+    
+    .card-article{
+        max-width: 260px;
+        margin: 11px 9px 10px 11px;
+    }
+
+    .card-pet-name{
+       margin-bottom: 8px;
+    }
+
+    .card-about{
+        font-size: 13px;
+        line-height: 110%;
+        letter-spacing: 0.06em;;
+        max-width: 260px;
+        margin: 21px 0 17px 0;
+    }
+    
+    .card-article ul li{
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
 
     .animals{
         justify-content: center;
@@ -534,7 +567,7 @@ nav a:hover{
 
 @media (max-width: 767px) {
     .header{
-        max-width: auto;
+        width: auto; 
         padding: 30px 50px 30px 10px;
     }
 
@@ -651,6 +684,43 @@ nav a:hover{
         height: 135.2px;
         padding-left: 9px;
     }
+
+    
+    .card-2{
+        display: none;
+    }
+
+    .window-information{
+        min-width: 240px;
+    }
+    
+    .window-information img{
+        display: none;
+    }
+
+
+    .card-pet-name{
+        text-align: center;
+    }
+
+    .card-breed{
+        text-align: center;
+    }
+
+    .card-about{
+        text-align: justify;
+        margin: 21px 0 20px 0;
+    }
+    
+    .card-article ul li{
+        align-items: center;
+    }
+
+    .closeBtn{
+        right: -30px;
+        top: -53px;
+    }
+
 
     .containerFive{
         gap: 11px;
