@@ -393,6 +393,16 @@ nav a:hover{
     background-color: #F1CDB3;
 }
 
+.btnLast{
+    border: 2px solid #F1CDB3;
+    cursor: pointer;
+}
+
+.btnLast:hover{
+    border: 2px solid #F1CDB3;
+    background-color: #F1CDB3;
+}
+
 .btnSelected{
     background: #F1CDB3;
     font-family: 'Georgia';

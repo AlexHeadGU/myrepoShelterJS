@@ -110,10 +110,9 @@ BTN_LEFT.addEventListener("click", moveLeft);
 BTN_RIGHT.addEventListener("click", moveRight);
 
 const REMOVE_CLASS = (direction) => {
-
-        CAROUSEL.classList.remove(`transition-${direction}-desktop`);;
-        CAROUSEL.classList.remove(`transition-${direction}-tablet`);;
-        CAROUSEL.classList.remove(`transition-${direction}-mobile`);;
+    CAROUSEL.classList.remove(`transition-${direction}-desktop`);;
+    CAROUSEL.classList.remove(`transition-${direction}-tablet`);;
+    CAROUSEL.classList.remove(`transition-${direction}-mobile`);;
 }
 
 CAROUSEL.addEventListener("animationend", (animationEvent) => {
