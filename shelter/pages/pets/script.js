@@ -86,13 +86,12 @@ const CARDS = document.querySelectorAll(".card");
 const BTN_SELECTED = document.querySelector(".btnSelected");
 const PAGINATION = document.querySelector("#select-pages");
 const BTN_NEXT = document.querySelector("#btnNext");
+const BTN_LAST = document.querySelector("#btnLast");
+const BTN_START = document.querySelector("#btnStart");
+const BTN_PREVIOUS = document.querySelector("#btnPrevious");
 let numberPage = Number(BTN_SELECTED.textContent);
 let petsForPagination = [];
 let existsIndex = [];
-let newResult = [];
-let namesArray = [];
-
-let randomValue;
 
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -102,72 +101,138 @@ const shuffle = (array) => {
 }
 
 const createCardsTemplate = () => {
-  for(let j = 0; j < petsForPagination[numberPage].length; j++){
-    let img = CARDS[j].querySelector(".pet-img");
-    let p = CARDS[j].querySelector(".pet-name");
-    img.src = `../../assets/images/${petsForPagination[numberPage - 1][j].name.toLowerCase()}.png`;
-    img.alt = petsForPagination[numberPage - 1][j].name.toLowerCase();
-    p.innerHTML = petsForPagination[numberPage - 1][j].name;
+  let count = 0;
+  for(let i = (numberPage - 1) * 8; i < numberPage * 8 ; i++){
+    let img = CARDS[count].querySelector(".pet-img");
+    let p = CARDS[count].querySelector(".pet-name");
+    img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
+    img.alt = petsForPagination[i].name.toLowerCase();
+    p.innerHTML = petsForPagination[i].name;
+    count++;
   }
 }
   
 const showNextCards = () => {
-  console.log("dddddddddddddddd")
-  numberPage++;
-  BTN_SELECTED.textContent = numberPage.toString();
-  for(let j = 0; j < petsForPagination[numberPage].length; j++){
-    let img = CARDS[j].querySelector(".pet-img");
-    // let p = CARDS[j].querySelector(".pet-name");
-    img.src = `../../assets/images/.png`;
-    img.alt = petsForPagination[numberPage][j].name;
-    // p.innerHTML = petsForPagination[numberPage][j].name;
-  }
-
-  for(let j = 0; j < petsForPagination[numberPage+1].length; j++){
-    let p = CARDS[j].querySelector(".pet-name");
-    p.innerHTML = petsForPagination[numberPage+1][j].name;
+  if(numberPage <= 5){ // переделать условие при разных разрешениях.
+    numberPage++;
+    BTN_SELECTED.textContent = numberPage;
+    createCardsTemplate();
+    BTN_PREVIOUS.removeAttribute("disabled");
+    BTN_START.removeAttribute("disabled");
+    BTN_START.classList.remove("disable");
+    BTN_PREVIOUS.classList.remove("disable");
+    if(numberPage === 6){
+      BTN_NEXT.classList.remove("hover");
+      BTN_LAST.classList.remove("hover")
+      BTN_NEXT.classList.add("disable");
+      BTN_LAST.classList.add("disable");
+      BTN_NEXT.setAttribute("disabled", "disabled");
+      BTN_LAST.setAttribute("disabled", "disabled");
+    }
   }
 }
 
-const petsSubsequence = () => {
+const showLastCards = () => {
+  numberPage = petsForPagination.length/8
+  BTN_SELECTED.textContent = numberPage;
+  BTN_NEXT.setAttribute("disabled", "disabled");
+  BTN_LAST.setAttribute("disabled", "disabled");
+  BTN_NEXT.classList.add("disable");
+  BTN_LAST.classList.add("disable");
+  BTN_NEXT.classList.remove("hover");
+  BTN_LAST.classList.remove("hover")
+  BTN_START.classList.remove("disable");
+  BTN_PREVIOUS.classList.remove("disable");
+  BTN_PREVIOUS.removeAttribute("disabled");
+  BTN_START.removeAttribute("disabled");
+  createCardsTemplate();
+  
+}
 
+const showPreviousCards = () => {
+  if(numberPage >= 2){// переделать условие при разных разрешениях.
+    numberPage--
+    BTN_SELECTED.textContent = numberPage;
+    BTN_NEXT.removeAttribute("disabled");
+    BTN_LAST.removeAttribute("disabled");
+    BTN_NEXT.classList.remove("disable");
+    BTN_LAST.classList.remove("disable");
+    createCardsTemplate();
+    if(numberPage === 1){
+      BTN_PREVIOUS.classList.add("disable");
+      BTN_START.classList.add("disable");
+      BTN_PREVIOUS.classList.remove("hover");
+      BTN_START.classList.remove("hover")
+      BTN_PREVIOUS.setAttribute("disabled", "disabled");
+      BTN_START.setAttribute("disabled", "disabled");
+    }
+  }
+}
+
+const showStartCards = () => {
+  numberPage = 1
+  BTN_SELECTED.textContent = numberPage;
+  BTN_START.setAttribute("disabled", "disabled");
+  BTN_PREVIOUS.setAttribute("disabled", "disabled");
+  BTN_PREVIOUS.classList.add("disable");
+  BTN_START.classList.add("disable");
+  BTN_NEXT.classList.remove("disable");
+  BTN_LAST.classList.remove("disable");
+  BTN_PREVIOUS.classList.remove("hover");
+  BTN_START.classList.remove("hover")
+  BTN_NEXT.removeAttribute("disabled");
+  BTN_LAST.removeAttribute("disabled");
+  createCardsTemplate();
+}
+
+const petsSubsequence = () => {
   for(let i = 0; i < 6; i++){
     existsIndex = pets;
     shuffle(existsIndex);
-    const oneMoreShuffle = () => {
-      if(i > 0 && (existsIndex[0].name != petsForPagination[petsForPagination.length - 2].name || existsIndex[0].name != petsForPagination[petsForPagination.length - 1].name || existsIndex[1].name != petsForPagination[petsForPagination.length - 1].name)){
-        for(let j = 0; j < existsIndex.length; j++){
-          console.log("хорошо > 0");
-          petsForPagination.push(existsIndex[j]); 
-        }
-      }else if(i === 0){
-        for(let j = 0; j < existsIndex.length; j++){
-          console.log("хорошо = 0");
-          petsForPagination.push(existsIndex[j])
+
+    if(i > 0  && !(existsIndex[0].name === petsForPagination[petsForPagination.length - 2].name || existsIndex[0].name === petsForPagination[petsForPagination.length - 1].name  || existsIndex[1].name === petsForPagination[petsForPagination.length - 1].name)){
+      for(let j = 0; j < existsIndex.length; j++){
+        console.log("хорошо > 0");
+        petsForPagination.push(existsIndex[j]); 
       }
-      }else{
-        shuffle(existsIndex);
-        console.log("давай снова");
-        oneMoreShuffle();
+    }else if(i === 0){
+      for(let j = 0; j < existsIndex.length; j++){
+        console.log("хорошо = 0");
+        petsForPagination.push(existsIndex[j])
       }
+    }else{
+      shuffle(existsIndex);
+      console.log("давай снова =================================");
+      i--;
     }
-    oneMoreShuffle();
 }
   console.log(petsForPagination);
   createCardsTemplate();
 }
 
-BTN_NEXT.addEventListener('click', showNextCards);
+const hoverBtn = (event) => {
+  if(event.type === "mouseover"){
+    if(!event.target.classList.contains("disable")){
+      event.target.classList.add("hover");
+    }
+  }else{
+    event.target.classList.remove("hover");
+  }
+}
 
-// PAGINATION.addEventListener("animationend", (animationEvent) => {
-//   BTN_NEXT.addEventListener('click', showNextCards());
-  // BTN_LAST.addEventListener('click', showLastCards());
-// });
+
+BTN_NEXT.addEventListener('click', showNextCards);
+BTN_LAST.addEventListener('click', showLastCards);
+BTN_START.addEventListener('click', showStartCards);
+BTN_PREVIOUS.addEventListener('click', showPreviousCards);
+
+BTN_START.addEventListener("mouseover", hoverBtn);
+BTN_START.addEventListener("mouseout", hoverBtn);
+BTN_PREVIOUS.addEventListener("mouseover", hoverBtn);
+BTN_PREVIOUS.addEventListener("mouseout", hoverBtn);
+BTN_NEXT.addEventListener("mouseover", hoverBtn);
+BTN_NEXT.addEventListener("mouseout", hoverBtn);
+BTN_LAST.addEventListener("mouseover", hoverBtn);
+BTN_LAST.addEventListener("mouseout", hoverBtn);
 
 window.addEventListener('load', petsSubsequence());
-
-
-
-
-
-//wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww

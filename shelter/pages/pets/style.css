@@ -332,6 +332,7 @@ nav a:hover{
     align-items: center;
     padding: 13px 44px;
     border: 2px solid #F1CDB3;
+    background-color: #F6F6F6;
     box-sizing: border-box;
     border-radius: 100px;
     flex: none;
@@ -376,31 +377,43 @@ nav a:hover{
     border-radius: 100px;
     border: none;
     transition: ease-in-out 0.2s;
-}
-
-.btnPrevious{
-    border: 2px solid #CDCDCD;
-    
-}
-
-.btnNext{
     border: 2px solid #F1CDB3;
-    cursor: pointer;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 115%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: #292929;
+    background-color: #F6F6F6;
 }
 
-.btnNext:hover{
-    border: 2px solid #F1CDB3;
-    background-color: #F1CDB3;
-}
-
+.btnStart,
+.btnPrevious,
+.btnNext,
 .btnLast{
-    border: 2px solid #F1CDB3;
+    transition: 0,2s;
     cursor: pointer;
 }
 
-.btnLast:hover{
+
+/* .btnStart:hover,
+.btnPrevious:hover,
+.btnNext:hover,
+.btnLast:hover{ */
+.hover{
     border: 2px solid #F1CDB3;
     background-color: #F1CDB3;
+}
+
+.btnStart:active,
+.btnPrevious:active,
+.btnNext:active,
+.btnLast:active {
+  transform: scale(0.8);
 }
 
 .btnSelected{
@@ -416,7 +429,18 @@ nav a:hover{
     letter-spacing: 0.06em;
     color: #292929;
 }
-
+.disable{
+    border: 2px solid #CDCDCD;
+    color: #CDCDCD;
+    cursor: default;
+    transform: none;
+}
+.disable:hover{
+    border: 2px solid #CDCDCD;
+    color: #CDCDCD;
+    cursor: default;
+    transform: none;
+}
 .footer{
     display: flex;
     justify-content: center;
@@ -734,10 +758,6 @@ nav a:hover{
 
     .containerFive{
         gap: 11px;
-    }
-
-    .cardSophia, .cardTimmy, .cardCharly{
-        display: none;
     }
 
     .title-contacts, .title-locations{

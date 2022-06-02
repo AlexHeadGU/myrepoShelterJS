@@ -438,6 +438,7 @@ nav a:hover{
     border-radius: 100px;
     transition: ease-in-out 0.2s;
     cursor: pointer;
+    background-color: #F6F6F6;
 }
 
 .btnScroll:hover{
@@ -503,6 +504,7 @@ nav a:hover{
     align-items: center;
     padding: 13px 44px;
     border: 2px solid #F1CDB3;
+    background-color: #F6F6F6;
     box-sizing: border-box;
     border-radius: 100px;
     flex: none;
