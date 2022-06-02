@@ -549,9 +549,6 @@ nav a:hover{
         padding: 13px 29px 0 28px;
         gap: 58px 54px;
     }
-    .card-3{
-        display: none;
-    }
 
     .window-information{
         min-width: 630px;
@@ -561,6 +558,11 @@ nav a:hover{
         width: 350px;
     }
     
+    .card-7,
+    .card-8{
+        display: none;
+    }
+
     .card-article{
         max-width: 260px;
         margin: 11px 9px 10px 11px;
@@ -592,9 +594,6 @@ nav a:hover{
         max-width: 302px;
     }
 
-    .cardScarlett, .cardFreddie{
-        display: none;
-    }
 }
 
 /* РАЗРЕШЕНИЕ  меньше 768px */
@@ -719,11 +718,6 @@ nav a:hover{
         padding-left: 9px;
     }
 
-    
-    .card-2{
-        display: none;
-    }
-
     .window-information{
         min-width: 240px;
     }
@@ -732,6 +726,11 @@ nav a:hover{
         display: none;
     }
 
+    .card-4,
+    .card-5,
+    .card-6{
+        display: none;
+    }
 
     .card-pet-name{
         text-align: center;

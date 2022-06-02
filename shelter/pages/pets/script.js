@@ -90,6 +90,9 @@ const BTN_LAST = document.querySelector("#btnLast");
 const BTN_START = document.querySelector("#btnStart");
 const BTN_PREVIOUS = document.querySelector("#btnPrevious");
 let numberPage = Number(BTN_SELECTED.textContent);
+const DESKTOP = window.matchMedia('(min-width: 1280px)');
+const TABLET = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
+const MOBILE = window.matchMedia('(max-width: 768px)')
 let petsForPagination = [];
 let existsIndex = [];
 
@@ -102,13 +105,34 @@ const shuffle = (array) => {
 
 const createCardsTemplate = () => {
   let count = 0;
-  for(let i = (numberPage - 1) * 8; i < numberPage * 8 ; i++){
-    let img = CARDS[count].querySelector(".pet-img");
-    let p = CARDS[count].querySelector(".pet-name");
-    img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
-    img.alt = petsForPagination[i].name.toLowerCase();
-    p.innerHTML = petsForPagination[i].name;
-    count++;
+
+  if(DESKTOP.matches){
+    for(let i = (numberPage - 1) * 8; i < numberPage * 8 ; i++){
+      let img = CARDS[count].querySelector(".pet-img");
+      let p = CARDS[count].querySelector(".pet-name");
+      img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
+      img.alt = petsForPagination[i].name.toLowerCase();
+      p.innerHTML = petsForPagination[i].name;
+      count++;
+    }
+  }else if(TABLET.matches){
+    for(let i = (numberPage - 1) * 6; i < numberPage * 6 ; i++){
+      let img = CARDS[count].querySelector(".pet-img");
+      let p = CARDS[count].querySelector(".pet-name");
+      img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
+      img.alt = petsForPagination[i].name.toLowerCase();
+      p.innerHTML = petsForPagination[i].name;
+      count++;
+    }
+  }else{
+    for(let i = (numberPage - 1) * 3; i < numberPage * 3 ; i++){
+      let img = CARDS[count].querySelector(".pet-img");
+      let p = CARDS[count].querySelector(".pet-name");
+      img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
+      img.alt = petsForPagination[i].name.toLowerCase();
+      p.innerHTML = petsForPagination[i].name;
+      count++;
+    }
   }
 }
   
@@ -220,6 +244,11 @@ const hoverBtn = (event) => {
   }
 }
 
+const updateInfoOnResize = () => {
+  numberPage = 1;
+  BTN_SELECTED.textContent = numberPage;
+
+}
 
 BTN_NEXT.addEventListener('click', showNextCards);
 BTN_LAST.addEventListener('click', showLastCards);
@@ -236,3 +265,4 @@ BTN_LAST.addEventListener("mouseover", hoverBtn);
 BTN_LAST.addEventListener("mouseout", hoverBtn);
 
 window.addEventListener('load', petsSubsequence());
+window.addEventListener('resize', updateInfoOnResize);
