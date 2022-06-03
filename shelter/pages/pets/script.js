@@ -84,7 +84,6 @@ POPUP_OVERLAY.addEventListener('click', closePopUp);
 
 const CARDS = document.querySelectorAll(".card");
 const BTN_SELECTED = document.querySelector(".btnSelected");
-const PAGINATION = document.querySelector("#select-pages");
 const BTN_NEXT = document.querySelector("#btnNext");
 const BTN_LAST = document.querySelector("#btnLast");
 const BTN_START = document.querySelector("#btnStart");
@@ -92,7 +91,6 @@ const BTN_PREVIOUS = document.querySelector("#btnPrevious");
 let numberPage = Number(BTN_SELECTED.textContent);
 const DESKTOP = window.matchMedia('(min-width: 1280px)');
 const TABLET = window.matchMedia('(min-width: 768px) and (max-width: 1279px)');
-const MOBILE = window.matchMedia('(max-width: 768px)')
 let petsForPagination = [];
 let existsIndex = [];
 
@@ -106,75 +104,84 @@ const shuffle = (array) => {
 const createCardsTemplate = () => {
   let count = 0;
 
+  const calculation = (value) => {
+    for(let i = (numberPage - 1) * value; i < numberPage * value ; i++){
+      let img = CARDS[count].querySelector(".pet-img");
+      let p = CARDS[count].querySelector(".pet-name");
+      img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
+      img.alt = petsForPagination[i].name.toLowerCase();
+      p.innerHTML = petsForPagination[i].name;
+      count++;
+    }
+  }
+
   if(DESKTOP.matches){
-    for(let i = (numberPage - 1) * 8; i < numberPage * 8 ; i++){
-      let img = CARDS[count].querySelector(".pet-img");
-      let p = CARDS[count].querySelector(".pet-name");
-      img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
-      img.alt = petsForPagination[i].name.toLowerCase();
-      p.innerHTML = petsForPagination[i].name;
-      count++;
-    }
+    calculation(8);
   }else if(TABLET.matches){
-    for(let i = (numberPage - 1) * 6; i < numberPage * 6 ; i++){
-      let img = CARDS[count].querySelector(".pet-img");
-      let p = CARDS[count].querySelector(".pet-name");
-      img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
-      img.alt = petsForPagination[i].name.toLowerCase();
-      p.innerHTML = petsForPagination[i].name;
-      count++;
-    }
+    calculation(6);
   }else{
-    for(let i = (numberPage - 1) * 3; i < numberPage * 3 ; i++){
-      let img = CARDS[count].querySelector(".pet-img");
-      let p = CARDS[count].querySelector(".pet-name");
-      img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
-      img.alt = petsForPagination[i].name.toLowerCase();
-      p.innerHTML = petsForPagination[i].name;
-      count++;
-    }
+    calculation(3);
   }
 }
   
 const showNextCards = () => {
-  if(numberPage <= 5){ // переделать условие при разных разрешениях.
-    numberPage++;
-    BTN_SELECTED.textContent = numberPage;
-    createCardsTemplate();
-    BTN_PREVIOUS.removeAttribute("disabled");
-    BTN_START.removeAttribute("disabled");
-    BTN_START.classList.remove("disable");
-    BTN_PREVIOUS.classList.remove("disable");
-    if(numberPage === 6){
-      BTN_NEXT.classList.remove("hover");
-      BTN_LAST.classList.remove("hover")
-      BTN_NEXT.classList.add("disable");
-      BTN_LAST.classList.add("disable");
-      BTN_NEXT.setAttribute("disabled", "disabled");
-      BTN_LAST.setAttribute("disabled", "disabled");
+  const nextPages = (a, b) => {
+    if(numberPage <= a){
+      numberPage++;
+      BTN_SELECTED.textContent = numberPage;
+      createCardsTemplate();
+      BTN_PREVIOUS.removeAttribute("disabled");
+      BTN_START.removeAttribute("disabled");
+      BTN_START.classList.remove("disable");
+      BTN_PREVIOUS.classList.remove("disable");
+      if(numberPage === b){
+        BTN_NEXT.classList.remove("hover");
+        BTN_LAST.classList.remove("hover")
+        BTN_NEXT.classList.add("disable");
+        BTN_LAST.classList.add("disable");
+        BTN_NEXT.setAttribute("disabled", "disabled");
+        BTN_LAST.setAttribute("disabled", "disabled");
+      }
     }
+  }
+
+  if(DESKTOP.matches){
+    nextPages(5,6)
+  }else if(TABLET.matches){
+    nextPages(7,8)
+  }else{
+    nextPages(15,16)
   }
 }
 
 const showLastCards = () => {
-  numberPage = petsForPagination.length/8
-  BTN_SELECTED.textContent = numberPage;
-  BTN_NEXT.setAttribute("disabled", "disabled");
-  BTN_LAST.setAttribute("disabled", "disabled");
-  BTN_NEXT.classList.add("disable");
-  BTN_LAST.classList.add("disable");
-  BTN_NEXT.classList.remove("hover");
-  BTN_LAST.classList.remove("hover")
-  BTN_START.classList.remove("disable");
-  BTN_PREVIOUS.classList.remove("disable");
-  BTN_PREVIOUS.removeAttribute("disabled");
-  BTN_START.removeAttribute("disabled");
-  createCardsTemplate();
-  
+  const lastPages = (a) => {
+    numberPage = petsForPagination.length/a
+    BTN_SELECTED.textContent = numberPage;
+    BTN_NEXT.setAttribute("disabled", "disabled");
+    BTN_LAST.setAttribute("disabled", "disabled");
+    BTN_NEXT.classList.add("disable");
+    BTN_LAST.classList.add("disable");
+    BTN_NEXT.classList.remove("hover");
+    BTN_LAST.classList.remove("hover")
+    BTN_START.classList.remove("disable");
+    BTN_PREVIOUS.classList.remove("disable");
+    BTN_PREVIOUS.removeAttribute("disabled");
+    BTN_START.removeAttribute("disabled");
+    createCardsTemplate();
+  }
+
+  if(DESKTOP.matches){
+    lastPages(8);
+  }else if(TABLET.matches){
+    lastPages(6);
+  }else{
+    lastPages(3);
+  }
 }
 
 const showPreviousCards = () => {
-  if(numberPage >= 2){// переделать условие при разных разрешениях.
+  if(numberPage >= 2){
     numberPage--
     BTN_SELECTED.textContent = numberPage;
     BTN_NEXT.removeAttribute("disabled");
@@ -216,21 +223,17 @@ const petsSubsequence = () => {
 
     if(i > 0  && !(existsIndex[0].name === petsForPagination[petsForPagination.length - 2].name || existsIndex[0].name === petsForPagination[petsForPagination.length - 1].name  || existsIndex[1].name === petsForPagination[petsForPagination.length - 1].name)){
       for(let j = 0; j < existsIndex.length; j++){
-        console.log("хорошо > 0");
         petsForPagination.push(existsIndex[j]); 
       }
     }else if(i === 0){
       for(let j = 0; j < existsIndex.length; j++){
-        console.log("хорошо = 0");
         petsForPagination.push(existsIndex[j])
       }
     }else{
       shuffle(existsIndex);
-      console.log("давай снова =================================");
       i--;
     }
-}
-  console.log(petsForPagination);
+  }
   createCardsTemplate();
 }
 
@@ -242,12 +245,6 @@ const hoverBtn = (event) => {
   }else{
     event.target.classList.remove("hover");
   }
-}
-
-const updateInfoOnResize = () => {
-  numberPage = 1;
-  BTN_SELECTED.textContent = numberPage;
-
 }
 
 BTN_NEXT.addEventListener('click', showNextCards);
@@ -265,4 +262,3 @@ BTN_LAST.addEventListener("mouseover", hoverBtn);
 BTN_LAST.addEventListener("mouseout", hoverBtn);
 
 window.addEventListener('load', petsSubsequence());
-window.addEventListener('resize', updateInfoOnResize);
