@@ -3,13 +3,13 @@ import pets from '../../pages/main/pets.js';
 export default pets;
 
 function preloadImages(name) {
-    for (let i = 1; i <= 8; i++) {
-      const img = new Image();
-      img.src = `../../assets/images/${name}.png`; 
-    }
-  } 
-  const names = ['charly', 'freddie', 'jennifer', 'katrine', 'scarlett', 'sophia', 'timmy', 'woody'];
-  names.forEach((elem) => preloadImages(elem));
+  for (let i = 1; i <= 8; i++) {
+    const img = new Image();
+    img.src = `../../assets/images/${name}.png`;
+  }
+}
+const names = ['charly', 'freddie', 'jennifer', 'katrine', 'scarlett', 'sophia', 'timmy', 'woody'];
+names.forEach((elem) => preloadImages(elem));
 
 // BURGER MENU
 
@@ -19,10 +19,10 @@ const NAV = document.querySelector(".navigation");
 const BODY = document.querySelector("body");
 
 BURGER_MENU.addEventListener("click", () => {
-    BURGER_MENU.classList.toggle("open"), 
-    OVERLAY.classList.toggle("active"), 
+  BURGER_MENU.classList.toggle("open"),
+    OVERLAY.classList.toggle("active"),
     NAV.classList.toggle("open")
-    BODY.classList.toggle("hiddenScroll")
+  BODY.classList.toggle("hiddenScroll")
 });
 
 // POP UP
@@ -34,51 +34,51 @@ const CROSS_BTN = document.querySelector(".closeBtn");
 
 const createPopupCard = (event) => {
 
-    let currentPetName = event.currentTarget.querySelector('.pet-name').innerHTML;
-    let currentPetInfo = pets.find((element, index, array) => {
-      if (array[index]["name"] === currentPetName) {
-        return array[index];
-      }
-    });
-  
-    const petImagePopup = document.querySelector('.card-img');
-    const petNamePopup = document.querySelector('.card-pet-name');
-    const petTypeBreed = document.querySelector('.card-breed');
-    const petDescription = document.querySelector('.card-about');
-    const petAge = document.querySelector('.characteristic-value.age');
-    const petInoculations = document.querySelector('.characteristic-value.inoculations');
-    const petDiseases = document.querySelector('.characteristic-value.diseases');
-    const petParasites = document.querySelector('.characteristic-value.parasites');
-  
-    petImagePopup.src = `${currentPetInfo["img"]}`;
-    petNamePopup.textContent = `${currentPetInfo["name"]}`;
-    petTypeBreed.textContent = `${currentPetInfo["type"]} - ${currentPetInfo["breed"]}`;
-    petDescription.textContent = `${currentPetInfo["description"]}`;
-    petAge.textContent = `${currentPetInfo["age"]}`;
-    petInoculations.textContent = `${currentPetInfo["inoculations"]}`;
-    petDiseases.textContent = `${currentPetInfo["diseases"]}`;
-    petParasites.textContent = `${currentPetInfo["parasites"]}`;   
+  let currentPetName = event.currentTarget.querySelector('.pet-name').innerHTML;
+  let currentPetInfo = pets.find((element, index, array) => {
+    if (array[index]["name"] === currentPetName) {
+      return array[index];
+    }
+  });
+
+  const petImagePopup = document.querySelector('.card-img');
+  const petNamePopup = document.querySelector('.card-pet-name');
+  const petTypeBreed = document.querySelector('.card-breed');
+  const petDescription = document.querySelector('.card-about');
+  const petAge = document.querySelector('.characteristic-value.age');
+  const petInoculations = document.querySelector('.characteristic-value.inoculations');
+  const petDiseases = document.querySelector('.characteristic-value.diseases');
+  const petParasites = document.querySelector('.characteristic-value.parasites');
+
+  petImagePopup.src = `${currentPetInfo["img"]}`;
+  petNamePopup.textContent = `${currentPetInfo["name"]}`;
+  petTypeBreed.textContent = `${currentPetInfo["type"]} - ${currentPetInfo["breed"]}`;
+  petDescription.textContent = `${currentPetInfo["description"]}`;
+  petAge.textContent = `${currentPetInfo["age"]}`;
+  petInoculations.textContent = `${currentPetInfo["inoculations"]}`;
+  petDiseases.textContent = `${currentPetInfo["diseases"]}`;
+  petParasites.textContent = `${currentPetInfo["parasites"]}`;
 }
 
 const openPopUp = (event) => {
-    POPUP_OVERLAY.classList.remove("hidden");
-    POPUP.classList.remove("hidden");
-    BODY.classList.add("no-scroll");
-    createPopupCard(event);
+  POPUP_OVERLAY.classList.remove("hidden");
+  POPUP.classList.remove("hidden");
+  BODY.classList.add("no-scroll");
+  createPopupCard(event);
 }
 
 const closePopUp = () => {
-    POPUP_OVERLAY.classList.add("hidden");
-    POPUP.classList.add("hidden");
-    BODY.classList.remove("no-scroll");
+  POPUP_OVERLAY.classList.add("hidden");
+  POPUP.classList.add("hidden");
+  BODY.classList.remove("no-scroll");
 }
 
-PET_CARDS.forEach((elem) => { 
-    elem.addEventListener('click', openPopUp);
-}); 
+PET_CARDS.forEach((elem) => {
+  elem.addEventListener('click', openPopUp);
+});
 
-CROSS_BTN.addEventListener('click', closePopUp); 
-POPUP_OVERLAY.addEventListener('click', closePopUp); 
+CROSS_BTN.addEventListener('click', closePopUp);
+POPUP_OVERLAY.addEventListener('click', closePopUp);
 
 // PAGINATION
 
@@ -105,7 +105,7 @@ const createCardsTemplate = () => {
   let count = 0;
 
   const calculation = (value) => {
-    for(let i = (numberPage - 1) * value; i < numberPage * value ; i++){
+    for (let i = (numberPage - 1) * value; i < numberPage * value; i++) {
       let img = CARDS[count].querySelector(".pet-img");
       let p = CARDS[count].querySelector(".pet-name");
       img.src = `../../assets/images/${petsForPagination[i].name.toLowerCase()}.png`;
@@ -115,18 +115,18 @@ const createCardsTemplate = () => {
     }
   }
 
-  if(DESKTOP.matches){
+  if (DESKTOP.matches) {
     calculation(8);
-  }else if(TABLET.matches){
+  } else if (TABLET.matches) {
     calculation(6);
-  }else{
+  } else {
     calculation(3);
   }
 }
-  
+
 const showNextCards = () => {
   const nextPages = (a, b) => {
-    if(numberPage <= a){
+    if (numberPage <= a) {
       numberPage++;
       BTN_SELECTED.textContent = numberPage;
       createCardsTemplate();
@@ -134,7 +134,7 @@ const showNextCards = () => {
       BTN_START.removeAttribute("disabled");
       BTN_START.classList.remove("disable");
       BTN_PREVIOUS.classList.remove("disable");
-      if(numberPage === b){
+      if (numberPage === b) {
         BTN_NEXT.classList.remove("hover");
         BTN_LAST.classList.remove("hover")
         BTN_NEXT.classList.add("disable");
@@ -145,18 +145,18 @@ const showNextCards = () => {
     }
   }
 
-  if(DESKTOP.matches){
-    nextPages(5,6)
-  }else if(TABLET.matches){
-    nextPages(7,8)
-  }else{
-    nextPages(15,16)
+  if (DESKTOP.matches) {
+    nextPages(5, 6)
+  } else if (TABLET.matches) {
+    nextPages(7, 8)
+  } else {
+    nextPages(15, 16)
   }
 }
 
 const showLastCards = () => {
   const lastPages = (a) => {
-    numberPage = petsForPagination.length/a
+    numberPage = petsForPagination.length / a
     BTN_SELECTED.textContent = numberPage;
     BTN_NEXT.setAttribute("disabled", "disabled");
     BTN_LAST.setAttribute("disabled", "disabled");
@@ -171,17 +171,17 @@ const showLastCards = () => {
     createCardsTemplate();
   }
 
-  if(DESKTOP.matches){
+  if (DESKTOP.matches) {
     lastPages(8);
-  }else if(TABLET.matches){
+  } else if (TABLET.matches) {
     lastPages(6);
-  }else{
+  } else {
     lastPages(3);
   }
 }
 
 const showPreviousCards = () => {
-  if(numberPage >= 2){
+  if (numberPage >= 2) {
     numberPage--
     BTN_SELECTED.textContent = numberPage;
     BTN_NEXT.removeAttribute("disabled");
@@ -189,7 +189,7 @@ const showPreviousCards = () => {
     BTN_NEXT.classList.remove("disable");
     BTN_LAST.classList.remove("disable");
     createCardsTemplate();
-    if(numberPage === 1){
+    if (numberPage === 1) {
       BTN_PREVIOUS.classList.add("disable");
       BTN_START.classList.add("disable");
       BTN_PREVIOUS.classList.remove("hover");
@@ -217,19 +217,19 @@ const showStartCards = () => {
 }
 
 const petsSubsequence = () => {
-  for(let i = 0; i < 6; i++){
+  for (let i = 0; i < 6; i++) {
     existsIndex = pets;
     shuffle(existsIndex);
 
-    if(i > 0  && !(existsIndex[0].name === petsForPagination[petsForPagination.length - 2].name || existsIndex[0].name === petsForPagination[petsForPagination.length - 1].name  || existsIndex[1].name === petsForPagination[petsForPagination.length - 1].name)){
-      for(let j = 0; j < existsIndex.length; j++){
-        petsForPagination.push(existsIndex[j]); 
+    if (i > 0 && !(existsIndex[0].name === petsForPagination[petsForPagination.length - 2].name || existsIndex[0].name === petsForPagination[petsForPagination.length - 1].name || existsIndex[1].name === petsForPagination[petsForPagination.length - 1].name)) {
+      for (let j = 0; j < existsIndex.length; j++) {
+        petsForPagination.push(existsIndex[j]);
       }
-    }else if(i === 0){
-      for(let j = 0; j < existsIndex.length; j++){
+    } else if (i === 0) {
+      for (let j = 0; j < existsIndex.length; j++) {
         petsForPagination.push(existsIndex[j])
       }
-    }else{
+    } else {
       shuffle(existsIndex);
       i--;
     }
@@ -238,11 +238,11 @@ const petsSubsequence = () => {
 }
 
 const hoverBtn = (event) => {
-  if(event.type === "mouseover"){
-    if(!event.target.classList.contains("disable")){
+  if (event.type === "mouseover") {
+    if (!event.target.classList.contains("disable")) {
       event.target.classList.add("hover");
     }
-  }else{
+  } else {
     event.target.classList.remove("hover");
   }
 }

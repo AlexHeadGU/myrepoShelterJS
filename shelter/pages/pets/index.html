@@ -1,149 +1,172 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pets</title>
-        <link rel="stylesheet" href="style.css">
-        <script async type="module" src="script.js"></script>
-    </head>
 
-    <!-- start BODY -->
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets</title>
+    <link rel="stylesheet" href="style.css">
+    <script async type="module" src="script.js"></script>
+</head>
 
-        <!-- start HEADER -->
-        <div class="containerStart">
-        
-            <header class="header">
-                <div class="wrapper header__wrapper">
-                    <div class="overlay"></div>
-                    <div class="header__logo-line">
-                        <a href="../main/index.html" >
-                                <h1 class="title-logo">Cozy House</h1>
-                                <p class="subtitle-logo"> Shelter for pets in Boston</p>
-                        </a>
-                    </div>
+<!-- start BODY -->
 
-                    <div class="hamburger">                        
-                        <span class="hamburger__line"></span>
-                    </div>
+<body>
 
-                    <nav class="header__navigation">
-                        <div class="navigation">
-                            <div class="menu"><a href="../../pages/main/index.html">About the shelter</a></div>
-                            <div class="menu-select"><a href="#">Our pets</a></div>
-                            <div class="menu"><a href="../../pages/main/index.html#help">Help the shelter</a></div>
-                            <div class="menu"><a href="#footer">Contacts</a></div>
-                        </div>
-                    </nav>
+    <!-- start HEADER -->
+    <div class="containerStart">
+
+        <header class="header">
+            <div class="wrapper header__wrapper">
+                <div class="overlay"></div>
+                <div class="header__logo-line">
+                    <a href="../main/index.html">
+                        <h1 class="title-logo">Cozy House</h1>
+                        <p class="subtitle-logo"> Shelter for pets in Boston</p>
+                    </a>
                 </div>
-            </header>
+
+                <div class="hamburger">
+                    <span class="hamburger__line"></span>
+                </div>
+
+                <nav class="header__navigation">
+                    <div class="navigation">
+                        <div class="menu"><a href="../../pages/main/index.html">About the shelter</a></div>
+                        <div class="menu-select"><a href="#">Our pets</a></div>
+                        <div class="menu"><a href="../../pages/main/index.html#help">Help the shelter</a></div>
+                        <div class="menu"><a href="#footer">Contacts</a></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+    <!-- end HEADER -->
+
+    <!-- start MAIN -->
+    <section class="select-animals">
+        <div class="popup-overlay hidden"></div>
+        <div class="popup hidden">
+            <div class="closeBtn">
+                <img class="cross" src="../../assets/icons/cross.svg" alt="X"></div>
+            <div class="window-information">
+                <img src="" alt="" class="card-img">
+                <div class="card-article">
+                    <p class="card-pet-name"></p>
+                    <p class="card-breed"></p>
+                    <p class="card-about"></p>
+                    <ul class="pet-characteristics">
+                        <li>
+                            <span class="characteristic-title age">Age:</span>
+                            <span class="characteristic-value age"></span>
+                        </li>
+                        <li>
+                            <span class="characteristic-title inoculations">Inoculations:</span>
+                            <span class="characteristic-value inoculations"></span>
+                        </li>
+                        <li>
+                            <span class="characteristic-title diseases">Diseases:</span>
+                            <span class="characteristic-value diseases"></span>
+                        </li>
+                        <li>
+                            <span class="characteristic-title parasites">Parasites:</span>
+                            <span class="characteristic-value parasites"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <!-- end HEADER -->
+        <div class="wrappers-animals">
 
-        <!-- start MAIN -->
-        <section class="select-animals">
-            <div class="popup-overlay hidden"></div>
-            <div class="popup hidden">
-                <div class="closeBtn">
-                    <img class="cross" src="../../assets/icons/cross.svg" alt="X"></div>
-                <div class="window-information">
-                    <img src="" alt="" class="card-img">
-                    <div class="card-article">
-                        <p class="card-pet-name"></p>
-                        <p class="card-breed"></p>
-                        <p class="card-about"></p>
-                        <ul class="pet-characteristics">
-                            <li>
-                                <span class="characteristic-title age">Age:</span>
-                                <span class="characteristic-value age"></span>
-                            </li>
-                            <li>
-                                <span class="characteristic-title inoculations">Inoculations:</span>
-                                <span class="characteristic-value inoculations"></span>
-                            </li>
-                            <li>
-                                <span class="characteristic-title diseases">Diseases:</span>
-                                <span class="characteristic-value diseases"></span>
-                            </li>
-                            <li>
-                                <span class="characteristic-title parasites">Parasites:</span>
-                                <span class="characteristic-value parasites"></span>
-                            </li>
-                        </ul>
-                    </div>
+            <h3 class="title-animals">Our friends who<br>
+                are looking for a house</h3>
+
+            <div class="animals">
+                <div class="card card-1"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
+                </div>
+                <div class="card card-2"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
+                </div>
+                <div class="card card-3"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
+                </div>
+                <div class="card card-4"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
+                </div>
+                <div class="card card-5"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
+                </div>
+                <div class="card card-6"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
+                </div>
+                <div class="card card-7"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
+                </div>
+                <div class="card card-8"><img src="" alt="" class="pet-img">
+                    <p class="pet-name"></p><button class="cardBtn">Learn more</button>
                 </div>
             </div>
-            <div class="wrappers-animals">
 
-                <h3 class="title-animals">Our friends who<br>
-                    are looking for a house</h3>
+            <div class="select-pages" id="select-pages">
+                <button class="btnScroll btnStart disable" id="btnStart" disabled="disabled">&lt;&lt;</button>
+                <button class="btnScroll btnPrevious disable" id="btnPrevious" disabled="disabled">&lt;</button>
+                <button class="btnScroll btnSelected">1</button>
+                <button class="btnScroll btnNext" id="btnNext">&gt;</button>
+                <button class="btnScroll btnLast" id="btnLast">&gt;&gt;</button>
+            </div>
+        </div>
+    </section>
+    <!-- end MAIN -->
 
-                <div class="animals">
-                    <div class="card card-1"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
-                    <div class="card card-2"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
-                    <div class="card card-3"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
-                    <div class="card card-4"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
-                    <div class="card card-5"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
-                    <div class="card card-6"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
-                    <div class="card card-7"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
-                    <div class="card card-8"><img src="" alt="" class="pet-img"><p class="pet-name"></p><button class="cardBtn">Learn more</button></div>
+    <!-- start FOOTER container -->
+    <footer id="footer" class="footer">
+        <div class="container-footer">
+
+            <div class="contact">
+                <h3 class="title-contacts">For questions and suggestions</h3>
+                <div class="email">
+                    <a href="mailto:email@shelter.com">
+                        <img src="../../assets/icons/icon-email.png" class="logoContact">
+                    </a>
+                    <a href="mailto:email@shelter.com" class="text-footer">email@shelter.com</a>
                 </div>
-
-                <div class="select-pages" id="select-pages" >
-                    <button class="btnScroll btnStart disable" id="btnStart" disabled="disabled">&lt;&lt;</button>
-                    <button class="btnScroll btnPrevious disable" id="btnPrevious" disabled="disabled">&lt;</button>
-                    <button class="btnScroll btnSelected" >1</button>
-                    <button class="btnScroll btnNext" id="btnNext">&gt;</button>
-                    <button class="btnScroll btnLast" id="btnLast">&gt;&gt;</button>
+                <div class="phone">
+                    <a href="tel:+1123123123123">
+                        <img src="../../assets/icons/icon-phone.png" class="logoContact">
+                    </a>
+                    <a href="tel:+1123123123123" class="text-footer">+13 674 567 75 54</a>
                 </div>
             </div>
-        </section>
-        <!-- end MAIN -->
 
-        <!-- start FOOTER container -->
-        <footer id="footer" class="footer">
-            <div class="container-footer">
-
-                <div class="contact">
-                    <h3 class="title-contacts">For questions and suggestions</h3>
-                    <div class="email">
-                        <a href="mailto:email@shelter.com">
-                            <img src="../../assets/icons/icon-email.png" class="logoContact">
-                        </a>
-                        <a href="mailto:email@shelter.com" class="text-footer">email@shelter.com</a>
-                    </div>
-                    <div class="phone">
-                        <a href="tel:+1123123123123">
-                            <img src="../../assets/icons/icon-phone.png"  class="logoContact">
-                        </a>
-                        <a href="tel:+1123123123123" class="text-footer">+13 674 567 75 54</a>
-                    </div>
+            <div class="locations">
+                <h3 class="title-locations">We are waiting for your visit</h3>
+                <div class="location">
+                    <a href="https://www.google.ru/maps/place/1+Central+St,+Boston,+MA+02109,+USA/@42.3585519,-71.0569203,17z/data=!3m1!4b1!4m5!3m4!1s0x89e370868bc2ce7b:0x82fa7db94f5fea9e!8m2!3d42.3585519!4d-71.0547263?hl=en"
+                        target="_blank" rel="noopener noreferrer">
+                        <img src="../../assets/icons/icon-marker.png" class="logoLocation">
+                    </a>
+                    <a href="https://www.google.ru/maps/place/1+Central+St,+Boston,+MA+02109,+USA/@42.3585519,-71.0569203,17z/data=!3m1!4b1!4m5!3m4!1s0x89e370868bc2ce7b:0x82fa7db94f5fea9e!8m2!3d42.3585519!4d-71.0547263?hl=en"
+                        target="_blank" rel="noopener noreferrer" class="text-footer">1 Central Street, Boston (entrance
+                        from the store)</a>
                 </div>
-
-                <div class="locations">
-                    <h3 class="title-locations">We are waiting for your visit</h3>
-                    <div class="location">
-                        <a href="https://www.google.ru/maps/place/1+Central+St,+Boston,+MA+02109,+USA/@42.3585519,-71.0569203,17z/data=!3m1!4b1!4m5!3m4!1s0x89e370868bc2ce7b:0x82fa7db94f5fea9e!8m2!3d42.3585519!4d-71.0547263?hl=en" target="_blank" rel="noopener noreferrer">
-                            <img src="../../assets/icons/icon-marker.png" class="logoLocation">
-                        </a>
-                        <a href="https://www.google.ru/maps/place/1+Central+St,+Boston,+MA+02109,+USA/@42.3585519,-71.0569203,17z/data=!3m1!4b1!4m5!3m4!1s0x89e370868bc2ce7b:0x82fa7db94f5fea9e!8m2!3d42.3585519!4d-71.0547263?hl=en" target="_blank" rel="noopener noreferrer" class="text-footer">1 Central Street, Boston (entrance from the store)</a>
-                    </div>
-                    <div class="location">
-                        <a href="https://www.google.ru/maps/place/18+S+Park+Rd,+London,+UK/@51.4441261,-0.2098429,17z/data=!3m1!4b1!4m5!3m4!1s0x48760f46ff61dba9:0x5696e3b778e1f425!8m2!3d51.4441261!4d-0.2076489?hl=en" target="_blank" rel="noopener noreferrer">
-                            <img src="../../assets/icons/icon-marker.png" class="logoLocation">
-                        </a>
-                        <a href="https://www.google.ru/maps/place/18+S+Park+Rd,+London,+UK/@51.4441261,-0.2098429,17z/data=!3m1!4b1!4m5!3m4!1s0x48760f46ff61dba9:0x5696e3b778e1f425!8m2!3d51.4441261!4d-0.2076489?hl=en" target="_blank" rel="noopener noreferrer" class="text-footer">18 South Park, London </a>
-                    </div>
+                <div class="location">
+                    <a href="https://www.google.ru/maps/place/18+S+Park+Rd,+London,+UK/@51.4441261,-0.2098429,17z/data=!3m1!4b1!4m5!3m4!1s0x48760f46ff61dba9:0x5696e3b778e1f425!8m2!3d51.4441261!4d-0.2076489?hl=en"
+                        target="_blank" rel="noopener noreferrer">
+                        <img src="../../assets/icons/icon-marker.png" class="logoLocation">
+                    </a>
+                    <a href="https://www.google.ru/maps/place/18+S+Park+Rd,+London,+UK/@51.4441261,-0.2098429,17z/data=!3m1!4b1!4m5!3m4!1s0x48760f46ff61dba9:0x5696e3b778e1f425!8m2!3d51.4441261!4d-0.2076489?hl=en"
+                        target="_blank" rel="noopener noreferrer" class="text-footer">18 South Park, London </a>
                 </div>
-
-                <img src="../../assets/images/footer-puppy.png" alt="puppy" class="footer-img">
-
             </div>
-        </footer>
-        <!-- end FOOTER container -->
-    </body>
-    <!-- END BODY -->
+
+            <img src="../../assets/images/footer-puppy.png" alt="puppy" class="footer-img">
+
+        </div>
+    </footer>
+    <!-- end FOOTER container -->
+</body>
+<!-- END BODY -->
 
 </html>
